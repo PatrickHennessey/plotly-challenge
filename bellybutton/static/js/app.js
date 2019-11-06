@@ -30,13 +30,13 @@ function buildCharts(sample) {
   // @TODO: Use `d3.json` to fetch the sample data for the plots
   d3.json(`/samples/${sample}`).then(d => {
 
-    /* @TODO: Build a Pie Chart
-    HINT: You will need to use slice() to grab the top 10 sample_values, otu_ids, and labels (10 each).
-    Use `sample_values` as the values for the PIE chart.
-    Use `otu_ids` as the labels for the pie chart.
-    Use `otu_labels` as the hovertext for the chart. */  
+    // @TODO: Build a Pie Chart
+    // HINT: You will need to use slice() to grab the top 10 sample_values, otu_ids, and labels (10 each).
+    // Use `otu_ids` as the labels for the pie chart.
     var labels = d.otu_ids.slice(0, 10);
+    // Use `sample_values` as the values for the PIE chart.
     var values = d.sample_values.slice(0, 10);
+    // Use `otu_labels` as the hovertext for the chart.
     var hovertext = d.otu_labels.slice(0, 10);
 
     var trace = [{
@@ -49,7 +49,7 @@ function buildCharts(sample) {
     }];
 
     var layoutPie = {
-      title: '<b> Belly Button Pie Chart </b>',
+      title: '<strong>BB Biodiversity <br> Pie Chart</strong>',
       plot_bgcolor: 'rgba(0, 0, 0, 0)',
       paper_bgcolor: 'LightSteelBlue',
       
@@ -59,16 +59,16 @@ function buildCharts(sample) {
       responsive: true
     });
 
-    /* @TODO: Build a Bubble Chart using the sample data
-    Use `otu_ids` for the x values.
-    Use `sample_values` for the y values.
-    Use `sample_values` for the marker size.
-    Use `otu_ids` for the marker colors.
-    Use `otu_labels` for the text values. */
+    // @TODO: Build a Bubble Chart using the sample data
+    // Use `otu_ids` for the x values.
     var x = d.otu_ids;
+    // Use `sample_values` for the y values.
     var y = d.sample_values;
+    // Use `sample_values` for the marker size.
     var markersize = d.sample_values;
+    // Use `otu_ids` for the marker colors.
     var markercolors = d.otu_ids;
+    // Use `otu_labels` for the text values.
     var textvalues = d.otu_labels;
 
     var trace =[{
@@ -83,12 +83,12 @@ function buildCharts(sample) {
     }];
 
     let layoutBubbles ={
-      title:"<h2> Belly Button Bubbles </h2>",
+      title: "<b>BB Biodiversity <br> Bubble Chart</b>",
       xaxis: {
-        title: 'OTU ID',
+        title: '<b>Selected Sample Results<b>',
       },
       yaxis: {
-        title: 'Sample Value'
+        title: 'Selected Sample Value'
       },
       width:1280,
       plot_bgcolor: 'rgba(0, 0, 0, 0)',
@@ -97,9 +97,6 @@ function buildCharts(sample) {
 
     Plotly.newPlot('bubble', trace, layoutBubbles, {responsive: true});
     });
-
-
-
 }
 
 

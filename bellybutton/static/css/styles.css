@@ -1,0 +1,16 @@
+body {
+    background: LightSteelBlue;
+}
+
+.jumbotron {
+    background: linear-gradient(to right, rgba(131, 37, 240, 0.35), rgba(14, 113, 243, 0.35)),
+    url("../images/bg.jpg");
+    background-size: cover;
+    color: white;
+    font-weight: 100;
+    width: 100%;
+}
+
+img {
+    max-width: 65%;
+}
